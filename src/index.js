@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const Home = () => {
-  return (
-    <div>
-      <h1>Home!</h1>
-    </div>
-  );
-};
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./Home.js";
+import About from "./About.js";
+import Login from "./Login.js";
+import Navbar from "./Navbar.js";
 
 ReactDOM.render(
-  <Home />,
+  <Router>
+    <Navbar />
+    <Route exact path="/" component={Home} />
+    <Route exact path="/about" component={About} />
+    <Route exact path="/login" component={Login} />
+  </Router>,
   document.getElementById('root')
 );
